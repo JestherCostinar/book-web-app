@@ -19,7 +19,6 @@ public class BookDaoImpl implements BookDao{
 	EntityManager entityManager;
 
 	@Override
-	@Transactional
 	public void addBook(Book book) {
 		entityManager.persist(book);
 		System.out.println(book.toString());
@@ -27,7 +26,6 @@ public class BookDaoImpl implements BookDao{
 	}
 
 	@Override
-	@Transactional
 	public void updateBook(Book newBook) {
 		Book existingBook = entityManager.find(Book.class, newBook.getId());
 		
@@ -45,7 +43,6 @@ public class BookDaoImpl implements BookDao{
 	}
 
 	@Override
-	@Transactional
 	public void deleteBook(Long id) {
 		Book existingBook = entityManager.find(Book.class, id);
 
