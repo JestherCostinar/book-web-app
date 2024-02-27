@@ -84,7 +84,32 @@
 	    <artifactId>jakarta.validation-api</artifactId>
 	    <version>3.0.2</version>
 	</dependency>
-  </dependencies>
+	
+	<!-- Convert object to json/vice versa -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.15.2</version>
+	</dependency>
+
+	<!-- TODO: Research on this.. found only the solutions on internet -->
+	<dependency>
+		<groupId>javax.xml.bind</groupId>
+		<artifactId>jaxb-api</artifactId>
+		<version>2.3.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.glassfish.jaxb</groupId>
+		<artifactId>jaxb-runtime</artifactId>
+		<version>4.0.2</version>
+	</dependency>
+	<dependency>
+		<groupId>jakarta.servlet</groupId>
+		<artifactId>jakarta.servlet-api</artifactId>
+		<version>5.0.0</version> <!-- Adjust version as needed -->
+		<scope>provided</scope>
+	</dependency>	
+ </dependencies>
 
   <build>
     <finalName>People</finalName>

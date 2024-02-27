@@ -13,7 +13,8 @@
            
     <context:component-scan base-package="org.rampup.dao" />
     <context:component-scan base-package="org.rampup.service" />
-           
+    <context:component-scan base-package="org.rampup.controller" />       
+     
     <!-- Define EntityManagerFactory bean -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="book_pu"/>
@@ -23,6 +24,19 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
+
+	<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+    <bean id="xmlMessageConverter" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+    
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="jsonMessageConverter"/>
+				<ref bean="xmlMessageConverter"/>
+			</list>
+		</property>
+	</bean>
+
 
     <!-- Enable annotation-driven transaction management -->
     <tx:annotation-driven/>
